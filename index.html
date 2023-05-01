@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevLangHint</title>
     <link rel="stylesheet" href="./index.css">
-    <script src="./script.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -15,24 +15,26 @@
     </div>
     <div class="body">
         <form action="">
-            <input type="text" placeholder="search...">
+            <input id="search" type="text" placeholder="search..." >
             <button type="submit"><img src="./img/search.png" class="search"></button>
         </form>
 
         <table>
-            <tr>
-                <th>Word</th>
-                <th>Transcription</th>
-                <th>Audio</th>
-                <th>Translate</th>
-                <th>Discription</th>
-            </tr>
-            <tr>
-                <td id="myTable">
+            
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Transcription</th>
+                    <th>Translate</th>
+                    <th>Discription</th>
+                </tr>
+            </thead>
+            
+            <tbody id="myTable">
+            </tbody>
 
-                </tbody>
-            </tr>
         </table>
+        <script src="./script.js"></script>
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 var myArray = [
       {
         "word": "element",
-        "transcription": "ˈɛləmənt",
+        "transcription": "[ˈɛləmənt]",
         "translation": "элемент",
         "explanation": "Отдельный компонент в HTML-документе, например, тег <p> представляет элемент абзаца"
       },
@@ -49,50 +49,42 @@ var myArray = [
       },
 ]
 
-buildTable(myArray)
+$('#search').on('keyup', function(){
+    var value = $(this).val()
+    console.log('Value:', value)
+    var data = searchTable(value, myArray)
+    buildTable(data)
+})
+
+buildTable(myArray);
+
+function searchTable(value, data) {
+    var filteredData = []
+
+    for (var i = 0; i < data.length; i++){
+        value = value.toLowerCase()
+        var word = data[i].word.toLowerCase()
+
+        if (word.includes(value)){
+            filteredData.push(data[i])
+        }
+    }
+
+    return filteredData;
+}
 
 
-
- $('th').on('click', function(){
-     var column = $(this).data('colname')
-     var order = $(this).data('order')
-     var text = $(this).html()
-     text = text.substring(0, text.length - 1);
-     
-     
-     
-     if (order == 'desc'){
-        myArray = myArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
-        $(this).data("order","asc");
-        text += '&#9660'
-     }else{
-        myArray = myArray.sort((a, b) => a[column] < b[column] ? 1 : -1)
-        $(this).data("order","desc");
-        text += '&#9650'
-     }
-
-    $(this).html(text)
-    buildTable(myArray)
-    })
-
-
-   
- 
-    
 function buildTable(data){
     var table = document.getElementById('myTable')
     table.innerHTML = ''
     for (var i = 0; i < data.length; i++){
-        var colname = `name-${i}`
-        var colage = `age-${i}`
-        var colbirth = `birth-${i}`
-
-        var row = `<tr>
-                        <td>${data[i].name}</td>
-                        <td>${data[i].age}</td>
-                        <td>${data[i].birthdate}</td>
-                   </tr>`
-        table.innerHTML += row
+        var row =  `<tr>
+                        <td>${data[i].word}</td>
+                        <td>${data[i].transcription}</td>
+                        <td>${data[i].translation}</td>
+                        <td><pre>${data[i].explanation}<pre></td>
+                    </tr>`
+        table.innerHTML +=row
     }
 }
 
