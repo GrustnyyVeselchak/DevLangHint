@@ -1,7 +1,22 @@
-html {
-    color:282727;
+body {
+    background-color:#282727;
 }
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #D9D9D9;
+}
+
+
 .boomer {
-    width: 100px;
-    height: 100px;
+
+}
+
+.search {
+    height: 10px;
+    width: 10px;
 }
