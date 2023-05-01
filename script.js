@@ -32,6 +32,7 @@ function buildTable(data){
         var row =  `<tr>
                         <td>${data[i].word}</td>
                         <td>${data[i].transcription}</td>
+                        <td><audio controls src="${data[i].audio}"></td>
                         <td>${data[i].translation}</td>
                         <td>${data[i].explanation}</td>
                     </tr>`
