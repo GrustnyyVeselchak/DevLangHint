@@ -83,24 +83,34 @@ tr {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {    
     .boomer {
         position: relative;
         top:50px ;
         height:200px;
-        
+ 
     }
     
-    
-    
+    span {
+        width: 100%;
+    }
     div {
-        margin: 0px 0px 100px 0px;
+        margin: 0px 0px 20px 0px;
     }
     
     .body {
         background-color: #5d5c5c;
         border-radius: 45px;
         padding: 20px 50px;
+    }
+
+    form {
+        width: 100%;
+        margin: 10px;
+    }
+
+    input {
+        height: 20px;
     }
 
     .table {
